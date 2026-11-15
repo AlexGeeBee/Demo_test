@@ -34,4 +34,13 @@ class ApplicationController extends Controller {
 
         return redirect('/applications')->with('success', 'Заявка успешно создана');
     }
+
+    public function updateStatus(Request $request, int $id) {
+        $validated = $request->validate(['status' => 'required|integer|exists:statuses,id']);
+        $app = Application::findOrFail($id);
+        $app->status_id = $validated['status'];
+        $app->save();
+
+        return redirect('/admin')->with('success', 'Статус заявки изменен');
+    }
 }

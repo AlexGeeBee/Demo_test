@@ -15,6 +15,10 @@ class CheckRole
      */
     public function handle(Request $request, Closure $next): Response
     {
+        $user = auth()->user();
+        if (!$user || $user->role_id != 2) {
+            return redirect('/')->with('error', 'У вас недостаточно прав');
+        }
         return $next($request);
     }
 }

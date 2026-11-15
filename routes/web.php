@@ -20,4 +20,9 @@ Route::middleware('guest')->group(function() {
     Route::post('/login', [AuthController::class, 'login']);
 });
 
+Route::middleware('CheckRole')->group(function() {
+    Route::get('/admin', [AdminController::class, 'index']);
+    Route::patch('/applications/update/{id}', [ApplicationController::class, 'updateStatus']);
+});
+
 Route::view('/', 'index');
