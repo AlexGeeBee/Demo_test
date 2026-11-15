@@ -11,9 +11,9 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Корочки.есть</a>
+            <a class="navbar-brand text-light" href="/">Корочки.есть</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -62,7 +62,7 @@
         </div>
     </nav>
 
-    <div class="container">
+    <div class="container mt-4">
         @session('success')
             <div class="alert alert-success" role="alert">
                 {{ $value }}

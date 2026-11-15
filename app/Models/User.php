@@ -10,7 +10,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+use App\Models\Application;
+
 
 class User extends Authenticatable {
     public $timestamps = false;
+
+    public function applications() {
+        return $this->hasMany(Application::class);
+    }
 }
